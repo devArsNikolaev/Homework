@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body{
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    }
+
+    .item-section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 500px;
+
+    }
+
+    .item{
+        width: 300px;
+        height: 470px;
+
+        border: 1px solid #37c2d3;
+
+        border-radius: 4px;
+        margin: 10px;
+    }
+
+    .item.super{
+        border: 1px solid #1cb79a;
+    }
+    .item.super .item-header{
+        background-color: #1cb79a;
+    }
+
+
+
+    .item:hover{
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        
+        border: 4px solid #ee8129;
+    }
+
+    .item:hover .item-header{
+        background-color: #ee8129;
+        height: 73px
+    }
+
+
+
+    .item-header{
+        height: 68px;
+        box-sizing: border-box;
+        
+        background-color: #37c2d3;
+        
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+
+    .item-header > p{
+        color: #fff;
+        font-size: 23px;
+    }
+
+    .item-name{
+        height: 63px;
+        box-sizing: border-box;
+
+        display: flex;
+        justify-content: center;
+    }
+    .item-name p{
+        color: #3f4042;
+        font-size: 23px;
+    }
+
+    .item-price{
+        height: 110px;
+        display: flex;
+        justify-content: center;
+    }
+    .price-marker{
+        height: 110px;
+        display: flex;
+        align-items: flex-start;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .price-marker span{
+      padding-top: 1em;
+    }
+
+    .price-cost{
+        height: 110px;
+        display: flex;
+        align-items: center;
+        font-size: 75px;
+        font-weight: bold;
+    }
+
+    .price-payment{
+        height: 110px;  
+        display: flex;
+        align-items: flex-end;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 1.5em;
+    }
+
+    .price-payment span{
+        padding-bottom: 1em;
+    }
+
+    .prefs-section{
+      height: 150px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .prefs-item{
+      margin-left:14px;
+    margin-right: 14px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+
+
+    }
+
+    .prefs-item:nth-child(odd){
+      background-color: #edf5fd;
+    }
+
+    .prefs-item:nth-child(even){
+      background-color: #f5f5f6;
+    }
+
+
+    .prefs-item img{
+      margin-left: 20px;
+    }
+    .prefs-item span{
+      margin-left: 17px;
+
+      font-size: 11px;
+      color: #888c94;
+    }
+
+
+    .button-section{
+      height: 74px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button-section input[type="button"]{
+      background-color: #3371a6;
+      font-size: 11px;
+      font-weight: bold;
+      color: #fff;
+
+      width: 250px;
+      height: 38px;
+
+      border: none;
+      border-radius: 5px;
+
+      box-shadow: inset 0px -3px 0px 0px #16436a;
+
+    }
+
+    .item:hover .button-section input[type="button"]{
+        background-color: #ee8129;
+        box-shadow: inset 0px -3px 0px 0px #b3560b;
+    }
+
+    .button-section input[type="button"]:active{
+      box-shadow: none;
+      height:35px;
+      margin-top: 3px;
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+    <div class="item-section">
+
+        <div class="item">
+
+            <div class="item-header">
+                <p>STADARD</p>
+            </div>
+    
+            <div class="item-name">
+                <p>ICONIC GRAPHICS</p>
+    
+            </div>
+    
+            <div class="item-price">
+                <div class="price-marker"><span>$</span></div>
+                <div class="price-cost">10</div>
+                <div class="price-payment"><span>Monthly</span></div>
+            </div>
+    
+            <div class="prefs-section">
+                <div class="prefs-item"> <img src="icon.png"><span>Unmetered Traffic</span></div>
+                <div class="prefs-item"> <img src="icon.png"><span>Unlimited Domain</span></div>
+                <div class="prefs-item"> <img src="icon.png"> <span>Unlimited Databases</span> </div>
+                <div class="prefs-item"> <img src="icon.png"><span>Unlimited e-Mails</span></div>
+            </div>
+    
+            <div class="button-section">
+                <input type="button" value="ENROLL TODAY">
+            </div>
+    
+        </div>
+    
+        <div class="item">
+
+            <div class="item-header">
+                <p>BEST VALUE</p>
+            </div>
+    
+            <div class="item-name">
+                <p>ICONIC GRAPHICS</p>
+    
+            </div>
+    
+            <div class="item-price">
+                <div class="price-marker"><span>$</span></div>
+                <div class="price-cost">25</div>
+                <div class="price-payment"><span>Monthly</span></div>
+            </div>
+    
+            <div class="prefs-section">
+                <div class="prefs-item"> <img src="icon.png"><span>PHP, PERL, ASP, JSP</span></div>
+                <div class="prefs-item"> <img src="icon.png"><span>SEMI DEDICATED</span></div>
+                <div class="prefs-item"> <img src="icon.png"> <span>Staging or Production</span> </div>
+                <div class="prefs-item"> <img src="icon.png"><span>Unlimited e-Mails</span></div>
+            </div>
+    
+            <div class="button-section">
+                <input type="button" value="ENROLL TODAY">
+            </div>
+    
+        </div>
+
+        <div class="item super">
+
+            <div class="item-header">
+                <p>ULTIMATE</p>
+            </div>
+    
+            <div class="item-name">
+                <p>ICONIC GRAPHICS</p>
+    
+            </div>
+    
+            <div class="item-price">
+                <div class="price-marker"><span>$</span></div>
+                <div class="price-cost">35</div>
+                <div class="price-payment"><span>Monthly</span></div>
+            </div>
+    
+            <div class="prefs-section">
+                <div class="prefs-item"> <img src="icon.png"><span>Semi Dedicated</span></div>
+                <div class="prefs-item"> <img src="icon.png"><span>1TB Storage</span></div>
+                <div class="prefs-item"> <img src="icon.png"> <span>Faster Site, Better SEO</span> </div>
+                <div class="prefs-item"> <img src="icon.png"><span>Unlimited e-Mails</span></div>
+            </div>
+    
+            <div class="button-section">
+                <input type="button" value="ENROLL TODAY">
+            </div>
+    
+        </div>
+
+    </div>
+
+</body>
+
+</html>
