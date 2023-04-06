@@ -1,3 +1,4 @@
+"use strict";
 function every(array, checker){
     var arrayMatches = true
     
