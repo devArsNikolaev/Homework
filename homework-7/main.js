@@ -10,10 +10,48 @@ addEventListener("DOMContentLoaded", function () {
 
 function getAllSMS(inputText) {
     if (!inputText || typeof inputText !== 'string') return [];
-    var splitText = inputText.split(' ');
-    var initIter = 1;
+    let splitText = inputText.split(' ');
+    let initIter = 1;
 
-    for (var i = 1; i <= 4; i++) {
+    let totalIterationCount;
+
+    function getSMS(arr, it, itEndSize) {
+        let iteration = it || 1;
+        let iterationEndSize = itEndSize || 1;
+
+        if (!arr.length) {
+            totalIterationCount = iteration - 1;
+            return {result: arr};
+        }
+
+        if (iterationEndSize < String(iteration).length) {
+            return { result: [], needNewRecursion: true };
+        }
+
+        let smsText = '';
+        let count = 0;
+        while (smsText.length < 140 && count < arr.length) {
+            if ((smsText + arr[count] + ' ' + iteration + '/').length + iterationEndSize <= 140) {
+                smsText += arr[count] + ' ';
+                count++;
+            } else break;
+        }
+        smsText += iteration + '/';
+
+
+        let iterationResult = getSMS(
+            arr.slice(count),
+            ++iteration,
+            iterationEndSize
+        );
+        let result = [smsText]
+            .concat(iterationResult.result);
+        if (result[0]) result[0] += totalIterationCount;
+        return { result, needNewRecursion: iterationResult.needNewRecursion };
+    }
+
+
+    for (let i = 1; i <= 4; i++) {
         var result = getSMS(splitText, initIter, i);
         if (!result.needNewRecursion) break;
     }
@@ -26,39 +64,4 @@ function getAllSMS(inputText) {
     }
 }
 
-var totalIterationCount;
 
-function getSMS(arr, it, itEndSize) {
-    var iteration = it || 1;
-    var iterationEndSize = itEndSize || 1;
-
-    if (!arr.length) {
-        totalIterationCount = iteration - 1;
-        return {result: arr};
-    }
-
-    if (iterationEndSize < String(iteration).length) {
-        return { result: [], needNewRecursion: true };
-    }
-
-    var smsText = '';
-    var count = 0;
-    while (smsText.length < 140 && count < arr.length) {
-        if ((smsText + arr[count] + ' ' + iteration + '/').length + iterationEndSize <= 140) {
-            smsText += arr[count] + ' ';
-            count++;
-        } else break;
-    }
-    smsText += iteration + '/';
-
-
-    var iterationResult = getSMS(
-        arr.slice(count),
-        ++iteration,
-        iterationEndSize
-    );
-    var result = [smsText]
-        .concat(iterationResult.result);
-    if (result[0]) result[0] += totalIterationCount;
-    return { result, needNewRecursion: iterationResult.needNewRecursion };
-}
